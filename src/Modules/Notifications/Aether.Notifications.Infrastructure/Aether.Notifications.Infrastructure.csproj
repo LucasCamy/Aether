@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="../Aether.Notifications.Domain/Aether.Notifications.Domain.csproj" />
+    <ProjectReference Include="../Aether.Notifications.Application/Aether.Notifications.Application.csproj" />
+  </ItemGroup>
+</Project>

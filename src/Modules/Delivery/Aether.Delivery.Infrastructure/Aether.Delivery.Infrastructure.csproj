@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="../Aether.Delivery.Domain/Aether.Delivery.Domain.csproj" />
+    <ProjectReference Include="../Aether.Delivery.Application/Aether.Delivery.Application.csproj" />
+  </ItemGroup>
+</Project>

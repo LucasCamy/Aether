@@ -1,0 +1,36 @@
+<Solution>
+  <Folder Name="/src/" />
+  <Folder Name="/src/Contracts/">
+    <Project Path="src/Contracts/Aether.Contracts/Aether.Contracts.csproj" />
+  </Folder>
+  <Folder Name="/src/Hosts/">
+    <Project Path="src/Hosts/Aether.Api/Aether.Api.csproj" />
+    <Project Path="src/Hosts/Aether.Worker/Aether.Worker.csproj" />
+  </Folder>
+  <Folder Name="/src/Modules/" />
+  <Folder Name="/src/Modules/Delivery/">
+    <Project Path="src/Modules/Delivery/Aether.Delivery.Application/Aether.Delivery.Application.csproj" />
+    <Project Path="src/Modules/Delivery/Aether.Delivery.Domain/Aether.Delivery.Domain.csproj" />
+    <Project Path="src/Modules/Delivery/Aether.Delivery.Infrastructure/Aether.Delivery.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/src/Modules/Notifications/">
+    <Project Path="src/Modules/Notifications/Aether.Notifications.Application/Aether.Notifications.Application.csproj" />
+    <Project Path="src/Modules/Notifications/Aether.Notifications.Domain/Aether.Notifications.Domain.csproj" />
+    <Project Path="src/Modules/Notifications/Aether.Notifications.Infrastructure/Aether.Notifications.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/src/Modules/ProviderManagement/">
+    <Project Path="src/Modules/ProviderManagement/Aether.ProviderManagement.Application/Aether.ProviderManagement.Application.csproj" />
+    <Project Path="src/Modules/ProviderManagement/Aether.ProviderManagement.Domain/Aether.ProviderManagement.Domain.csproj" />
+    <Project Path="src/Modules/ProviderManagement/Aether.ProviderManagement.Infrastructure/Aether.ProviderManagement.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/src/Modules/Templates/">
+    <Project Path="src/Modules/Templates/Aether.Templates.Application/Aether.Templates.Application.csproj" />
+    <Project Path="src/Modules/Templates/Aether.Templates.Domain/Aether.Templates.Domain.csproj" />
+    <Project Path="src/Modules/Templates/Aether.Templates.Infrastructure/Aether.Templates.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/src/Modules/Tenancy/">
+    <Project Path="src/Modules/Tenancy/Aether.Tenancy.Application/Aether.Tenancy.Application.csproj" />
+    <Project Path="src/Modules/Tenancy/Aether.Tenancy.Domain/Aether.Tenancy.Domain.csproj" />
+    <Project Path="src/Modules/Tenancy/Aether.Tenancy.Infrastructure/Aether.Tenancy.Infrastructure.csproj" />
+  </Folder>
+</Solution>
