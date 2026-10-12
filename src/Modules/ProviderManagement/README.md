@@ -1,10 +1,7 @@
 # ProviderManagement
 
-Fronteira conforme docs/architecture/overview.md e ADR-0001.
+Porta de segredos e store de arquivos montados. Configuração versionada, capacidades e Secret Manager de produção ainda pendentes.
 
-- Domain: entidades, invariantes e transições sem dependências externas.
-- Application: slices, handlers e portas necessárias aos casos de uso.
-- Infrastructure: persistência e implementações de portas.
-- Endpoints/consumers: apresentação nos hosts, delegando para handlers.
+Domain: invariantes. Application: slices/portas. Infrastructure: persistência/adapters.
 
-Projetos vazios nesta fundação; adicionar classes apenas ao implementar a slice.
+Ver docs/implementation/status.md para o escopo verificável.

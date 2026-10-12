@@ -1,10 +1,7 @@
 # Templates
 
-Fronteira conforme docs/architecture/overview.md e ADR-0001.
+Estrutura pronta, sem casos de uso implementados. Templates publicados imutáveis, renderização e validação são próximos incrementos.
 
-- Domain: entidades, invariantes e transições sem dependências externas.
-- Application: slices, handlers e portas necessárias aos casos de uso.
-- Infrastructure: persistência e implementações de portas.
-- Endpoints/consumers: apresentação nos hosts, delegando para handlers.
+Domain: invariantes. Application: slices/portas. Infrastructure: persistência/adapters.
 
-Projetos vazios nesta fundação; adicionar classes apenas ao implementar a slice.
+Ver docs/implementation/status.md para o escopo verificável.

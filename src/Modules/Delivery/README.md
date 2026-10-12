@@ -1,10 +1,7 @@
 # Delivery
 
-Fronteira conforme docs/architecture/overview.md e ADR-0001.
+Portas de E-mail, adapter Resend, RabbitMQ e Token Bucket Redis; circuito local no domínio. Orquestração atual fica no Worker. Provider real e governança ainda não estão ligados ao envio de produção.
 
-- Domain: entidades, invariantes e transições sem dependências externas.
-- Application: slices, handlers e portas necessárias aos casos de uso.
-- Infrastructure: persistência e implementações de portas.
-- Endpoints/consumers: apresentação nos hosts, delegando para handlers.
+Domain: invariantes. Application: slices/portas. Infrastructure: persistência/adapters.
 
-Projetos vazios nesta fundação; adicionar classes apenas ao implementar a slice.
+Ver docs/implementation/status.md para o escopo verificável.

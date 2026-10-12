@@ -1,16 +1,27 @@
-# Validação da fundação
+# Validação
 
-Data: 2026-10-12. Ambiente: Windows, SDK .NET 10.0.401.
+Data: 2026-10-12. Windows, SDK .NET 10.0.401 e Docker Linux.
 
-| Verificação | Resultado |
-|---|---|
-| dotnet build Aether.slnx -c Release | Sucesso, 0 avisos e 0 erros |
-| Inicialização de Aether.Api em loopback :5080 | Sucesso |
-| GET /health/live | HTTP 200, status alive, service Aether.Api |
-| Inicialização de Aether.Worker | Generic Host iniciado; sem consumers/jobs |
-| Referências de Domain/Application | 18 projetos inspecionados, fronteiras válidas |
-| Links locais em Markdown | Todos os links existentes válidos |
+- Build Release sem avisos/erros.
+- 32 testes, nenhum ignorado, com PostgreSQL/RabbitMQ/Redis reais.
+- Oito chamadas concorrentes criam um Request/Dispatch/Outbox.
+- JWT ausente/adulterado, tenant diferente e permissão critical.
+- RLS/pooling, runtime sem superuser/BYPASSRLS.
+- FK composta impede vínculo entre tenants; banco indisponível nunca produz 202.
+- Falha de outbox reverte toda aceitação.
+- Publisher sem acesso direto à tabela; leases/fencing.
+- Confirms/mandatory, reentrega e ACK manual.
+- Pipeline completo em modo controlado.
+- Tentativa abandonada vira Unknown; geração antiga não reenvia.
+- Resend com endpoint fixo, idempotência e timeout conservador.
+- Token Bucket concorrente e negação multi-bucket atômica.
+- Circuito local e calendário America/Cuiaba.
+- Scripts PowerShell parseados e smoke API/Worker/exemplo em loopback.
+- EF sem alterações pendentes de modelo; NuGet não reportou vulnerabilidades
+  conhecidas nas dependências diretas/transitivas nas fontes consultadas.
 
-Processos de smoke encerrados após inspeção. Não há teste de envio externo, banco,
-RLS, broker, Redis ou autenticação: esses comportamentos ainda não existem.
-Esta validação não representa prontidão para produção nem suíte automatizada.
+O smoke identificou readiness no schema antigo após mover o catálogo. A rota foi
+corrigida e ganhou teste de regressão.
+
+Sem envio externo, callbacks reais, HA, carga ou recuperação de produção.
+Pendências em status.md. CI será verificada após publicação.

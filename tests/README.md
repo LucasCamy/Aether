@@ -1,16 +1,15 @@
-# Estratégia de testes
+# Testes
 
-A fundação ainda não tem comportamentos de negócio implementados nem suíte de testes.
-Build e smoke de hosts são as verificações desta etapa.
+Execute scripts/Initialize-Local.ps1 uma vez e scripts/Test.ps1.
+A suíte exige PostgreSQL/RabbitMQ/Redis locais e não ignora integrações silenciosamente.
+Scripts fornecem variáveis; dados e credenciais são sintéticos/locais.
 
-- Domain: invariantes e transições, expiração, Unknown e política de fallback.
-- Application: autorização, decisões e erros; portas externas substituídas.
-- PostgreSQL real: transações, unicidade concorrente, RLS/pooling e leases.
-- RabbitMQ real: confirms, unroutable, reentrega, DLX e crash windows.
-- Contracts/API: status codes, validação, replay e isolamento entre tenants.
-- Providers: fixtures autenticadas de callbacks e classificação de resultado.
-- Architecture: impedir dependências de Domain/SDK e acesso cruzado a módulos.
-- Resilience: Redis/broker indisponíveis e recuperação com backlog.
+- Domain: estados, Unknown, leases, retry e JSON canônico.
+- API: JWT, autorização, replay concorrente, conflito e readiness.
+- PostgreSQL: RLS/pooling, rollback e roles.
+- RabbitMQ: confirms/mandatory, reentrega/ACK e pipeline controlado.
+- Redis: Token Bucket concorrente e atomicidade.
+- Provider: fixtures HTTP Resend, sem envios externos.
+- Governança: circuito local e calendário.
 
-Não substituir testes de SQL/RLS por EF InMemory. Não enviar a destinatários reais
-durante testes. Fixtures devem usar dados sintéticos.
+O pipeline pode consumir o backlog local controlado. Não usar produção.

@@ -1,0 +1,60 @@
+name: aether-dev
+services:
+  postgres:
+    image: postgres:18.3-bookworm
+    environment:
+      POSTGRES_DB: aether
+      POSTGRES_USER: aether_migrator
+      POSTGRES_PASSWORD: ${AETHER_DB_ADMIN_PASSWORD:?Execute scripts/Initialize-Local.ps1}
+      AETHER_DB_RUNTIME_PASSWORD: ${AETHER_DB_RUNTIME_PASSWORD:?Execute scripts/Initialize-Local.ps1}
+      AETHER_DB_PUBLISHER_PASSWORD: ${AETHER_DB_PUBLISHER_PASSWORD:?Execute scripts/Initialize-Local.ps1}
+    ports:
+      - "127.0.0.1:55432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql
+      - ./postgres/init.sh:/docker-entrypoint-initdb.d/01-runtime.sh:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U aether_migrator -d aether"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+    security_opt:
+      - no-new-privileges:true
+  rabbitmq:
+    image: rabbitmq:4.2.4-management
+    environment:
+      RABBITMQ_DEFAULT_USER: aether
+      RABBITMQ_DEFAULT_PASS: ${AETHER_RABBIT_PASSWORD:?Execute scripts/Initialize-Local.ps1}
+    ports:
+      - "127.0.0.1:55672:5672"
+      - "127.0.0.1:55673:15672"
+    volumes:
+      - rabbit-data:/var/lib/rabbitmq
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "check_running"]
+      interval: 3s
+      timeout: 10s
+      retries: 30
+    security_opt:
+      - no-new-privileges:true
+  redis:
+    image: redis:8.2.1-alpine
+    environment:
+      AETHER_REDIS_PASSWORD: ${AETHER_REDIS_PASSWORD:?Execute scripts/Initialize-Local.ps1}
+      REDISCLI_AUTH: ${AETHER_REDIS_PASSWORD:?Execute scripts/Initialize-Local.ps1}
+    command: ["sh", "-c", "exec redis-server --appendonly yes --requirepass \"$$AETHER_REDIS_PASSWORD\""]
+    ports:
+      - "127.0.0.1:56379:6379"
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+    security_opt:
+      - no-new-privileges:true
+volumes:
+  redis-data:
+  postgres-data:
+  rabbit-data:

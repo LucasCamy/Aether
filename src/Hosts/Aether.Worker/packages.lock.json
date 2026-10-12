@@ -1,0 +1,161 @@
+{
+  "version": 1,
+  "dependencies": {
+    "net10.0": {
+      "Microsoft.EntityFrameworkCore": {
+        "type": "Transitive",
+        "resolved": "10.0.12",
+        "contentHash": "e7OrVN8U5yr4kuwdTHWBHGVQIVsGfMkAr0Ej1/BnrS989Q0XBVANpIzNZ2bc1GvMZ0/XwMt5InTnmKskxGy99Q==",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Abstractions": "10.0.12",
+          "Microsoft.EntityFrameworkCore.Analyzers": "10.0.12"
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Abstractions": {
+        "type": "Transitive",
+        "resolved": "10.0.12",
+        "contentHash": "kDrux7T6C3V/YYYe2LXr7x6AEsVyq5Y2YoTE9er1SwbDtap3z1g8RgxNh5eKQVyB4T+DKvBBJ4Ezd/VZzJQJZg=="
+      },
+      "Microsoft.EntityFrameworkCore.Analyzers": {
+        "type": "Transitive",
+        "resolved": "10.0.12",
+        "contentHash": "Kd4o2oO1A6dfKxjz5LS16QyLtpCFTUiFWwmBABETAXRsSImBdRdWeKjSgbbRhAMiV3a3/nWr95ZtzClT4uaADQ=="
+      },
+      "Microsoft.EntityFrameworkCore.Relational": {
+        "type": "Transitive",
+        "resolved": "10.0.12",
+        "contentHash": "OiHmr8XzX96dbgMsYGe8qoqg4KxibdZG2r0QUVJBGktFInOp8IrABe8jvcbo5hrqeWfbwpK7fCEBiEPbY/ik4A==",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "10.0.12"
+        }
+      },
+      "Npgsql": {
+        "type": "Transitive",
+        "resolved": "10.0.3",
+        "contentHash": "7nb5YzXuvWWJxB0J8DiyL3we+X4FOctZrt0fIBnucOIaIevFEEwGQVZKtiu9olXdlNAK1eNgqSral6r/jlhI4w=="
+      },
+      "Npgsql.EntityFrameworkCore.PostgreSQL": {
+        "type": "Transitive",
+        "resolved": "10.0.3",
+        "contentHash": "IPGrrZnRkuW7OlHDhUESZz4G5DLkW7Nej/O3Cx+0iTsgyU5XJxBgpsvTHLloo3WWuAKKbDHXBvWPVkX1deRh1Q==",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "[10.0.4, 11.0.0)",
+          "Microsoft.EntityFrameworkCore.Relational": "[10.0.4, 11.0.0)",
+          "Npgsql": "10.0.3"
+        }
+      },
+      "RabbitMQ.Client": {
+        "type": "Transitive",
+        "resolved": "7.2.2",
+        "contentHash": "k4b6RnTXpLbsF96V93ooNYxgPMnoA2tEm24B6AXNJr1mG8wwNYdA1XJtgU66L5xqeGyveS7SJriRzlX3cbqQNA=="
+      },
+      "RESPite": {
+        "type": "Transitive",
+        "resolved": "3.4.0",
+        "contentHash": "BEdf42Eugi6oNw84vSQuLvYOzoY9KLv6gKsxFbSbv1zm23DiCULeQ8jobRgGip43T0GoAJstFW0TXvKRx9Ewlg=="
+      },
+      "StackExchange.Redis": {
+        "type": "Transitive",
+        "resolved": "3.4.0",
+        "contentHash": "29fvhba1pHQ2Vs+FIiG2201G62xL4EayGMm7yNZrHh/IcOZbzhl4g1CKQQP9xhznzDHybFURyj3XN433QctdPA==",
+        "dependencies": {
+          "RESPite": "3.4.0",
+          "System.IO.Hashing": "10.0.12"
+        }
+      },
+      "System.IO.Hashing": {
+        "type": "Transitive",
+        "resolved": "10.0.12",
+        "contentHash": "jDix4bBMYnpZdSPcnY+KDV6ik3SRMzpMKby/bZl/XUwIiflwRNAFZ0oOl61R/pSaveIJ8t1gs2BUlrGsPs/bcg=="
+      },
+      "aether.contracts": {
+        "type": "Project"
+      },
+      "aether.delivery.application": {
+        "type": "Project",
+        "dependencies": {
+          "Aether.Delivery.Domain": "[1.0.0, )"
+        }
+      },
+      "aether.delivery.domain": {
+        "type": "Project"
+      },
+      "aether.delivery.infrastructure": {
+        "type": "Project",
+        "dependencies": {
+          "Aether.Delivery.Application": "[1.0.0, )",
+          "Aether.Delivery.Domain": "[1.0.0, )",
+          "RabbitMQ.Client": "[7.2.2, )",
+          "StackExchange.Redis": "[3.4.0, )"
+        }
+      },
+      "aether.notifications.application": {
+        "type": "Project",
+        "dependencies": {
+          "Aether.Notifications.Domain": "[1.0.0, )"
+        }
+      },
+      "aether.notifications.domain": {
+        "type": "Project"
+      },
+      "aether.notifications.infrastructure": {
+        "type": "Project",
+        "dependencies": {
+          "Aether.Notifications.Application": "[1.0.0, )",
+          "Aether.Notifications.Domain": "[1.0.0, )",
+          "Microsoft.EntityFrameworkCore": "[10.0.12, )",
+          "Microsoft.EntityFrameworkCore.Relational": "[10.0.12, )",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "[10.0.3, )"
+        }
+      },
+      "aether.providermanagement.application": {
+        "type": "Project",
+        "dependencies": {
+          "Aether.ProviderManagement.Domain": "[1.0.0, )"
+        }
+      },
+      "aether.providermanagement.domain": {
+        "type": "Project"
+      },
+      "aether.providermanagement.infrastructure": {
+        "type": "Project",
+        "dependencies": {
+          "Aether.ProviderManagement.Application": "[1.0.0, )",
+          "Aether.ProviderManagement.Domain": "[1.0.0, )"
+        }
+      },
+      "aether.templates.application": {
+        "type": "Project",
+        "dependencies": {
+          "Aether.Templates.Domain": "[1.0.0, )"
+        }
+      },
+      "aether.templates.domain": {
+        "type": "Project"
+      },
+      "aether.templates.infrastructure": {
+        "type": "Project",
+        "dependencies": {
+          "Aether.Templates.Application": "[1.0.0, )",
+          "Aether.Templates.Domain": "[1.0.0, )"
+        }
+      },
+      "aether.tenancy.application": {
+        "type": "Project",
+        "dependencies": {
+          "Aether.Tenancy.Domain": "[1.0.0, )"
+        }
+      },
+      "aether.tenancy.domain": {
+        "type": "Project"
+      },
+      "aether.tenancy.infrastructure": {
+        "type": "Project",
+        "dependencies": {
+          "Aether.Tenancy.Application": "[1.0.0, )",
+          "Aether.Tenancy.Domain": "[1.0.0, )"
+        }
+      }
+    }
+  }
+}

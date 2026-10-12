@@ -1,10 +1,7 @@
 # Notifications
 
-Fronteira conforme docs/architecture/overview.md e ADR-0001.
+Request, Dispatch, estados, aceitação/idempotência, outbox/inbox e execução com PostgreSQL. HTTP/consumers ficam nos hosts. Catálogo de tenant é referencial: chamar tenancy.is_active, sem ampliar ownership.
 
-- Domain: entidades, invariantes e transições sem dependências externas.
-- Application: slices, handlers e portas necessárias aos casos de uso.
-- Infrastructure: persistência e implementações de portas.
-- Endpoints/consumers: apresentação nos hosts, delegando para handlers.
+Domain: invariantes. Application: slices/portas. Infrastructure: persistência/adapters.
 
-Projetos vazios nesta fundação; adicionar classes apenas ao implementar a slice.
+Ver docs/implementation/status.md para o escopo verificável.

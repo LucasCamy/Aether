@@ -20,6 +20,8 @@ para implementação. **Aceito não significa implementado**: progresso no
 | [0012](0012-callbacks.md) | Callbacks autenticados e eventos fora de ordem | Aceito |
 | [0013](0013-operacao.md) | Observabilidade, readiness e recuperação | Aceito |
 | [0014](0014-entrega-incremental.md) | Entrega incremental e estratégia de validação | Aceito |
+| [0015](0015-provedor-email-inicial.md) | Resend como primeiro adapter de E-mail | Aceito |
+| [0016](0016-catalogo-tenant-e-publisher.md) | Catálogo tenancy e publisher com privilégios separados | Aceito |
 
 ## Processo
 

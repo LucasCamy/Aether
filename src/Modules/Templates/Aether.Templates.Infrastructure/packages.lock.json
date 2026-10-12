@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "dependencies": {
+    "net10.0": {
+      "aether.templates.application": {
+        "type": "Project",
+        "dependencies": {
+          "Aether.Templates.Domain": "[1.0.0, )"
+        }
+      },
+      "aether.templates.domain": {
+        "type": "Project"
+      }
+    }
+  }
+}

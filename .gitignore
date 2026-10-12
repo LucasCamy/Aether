@@ -2,6 +2,9 @@
 **/obj/
 .vs/
 .idea/
+.local/
+.secrets/
+/secrets/
 *.user
 *.suo
 TestResults/

@@ -33,4 +33,7 @@
     <Project Path="src/Modules/Tenancy/Aether.Tenancy.Domain/Aether.Tenancy.Domain.csproj" />
     <Project Path="src/Modules/Tenancy/Aether.Tenancy.Infrastructure/Aether.Tenancy.Infrastructure.csproj" />
   </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Aether.Tests/Aether.Tests.csproj" />
+  </Folder>
 </Solution>

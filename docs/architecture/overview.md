@@ -52,5 +52,6 @@ na slice concreta. A ingestão compõe validações por portas; não carrega SDK
 
 ## Situação implementada
 
-Somente composição vazia dos hosts e projetos. Os mecanismos acima são requisitos
-de implementação, não garantias oferecidas pelo bootstrap.
+Aceitação durável de E-mail e pipeline controlado implementados. Resend e componentes
+de governança testados, sem envio de produção. Ver [estado por ADR](../implementation/status.md).
+As demais garantias acima continuam requisitos de implementação.
