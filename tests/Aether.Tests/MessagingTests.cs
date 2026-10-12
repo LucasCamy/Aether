@@ -1,4 +1,5 @@
 using Aether.Delivery.Infrastructure.Messaging;
+using Aether.Notifications.Application;
 using Aether.Notifications.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Npgsql;
@@ -8,6 +9,11 @@ namespace Aether.Tests;
 
 public sealed class MessagingTests(ApiFixture fixture) : IClassFixture<ApiFixture>
 {
+    private sealed class Factory(string connection) : IDbContextFactory<NotificationDbContext>
+    {
+        public NotificationDbContext CreateDbContext() => new(
+            new DbContextOptionsBuilder<NotificationDbContext>().UseNpgsql(connection).Options);
+    }
     private static string Password => Environment.GetEnvironmentVariable("AETHER_TEST_RABBIT_PASSWORD")
         ?? throw new InvalidOperationException("Execute scripts/Test.ps1.");
     private static RabbitSettings Settings => new("127.0.0.1", 55672, "aether", Password, UseTls: false);
@@ -55,6 +61,12 @@ public sealed class MessagingTests(ApiFixture fixture) : IClassFixture<ApiFixtur
     [Fact]
     public async Task PublisherHasNoTableAccessAndLeaseUsesFencing()
     {
+        var ingestion = new SubmitNotification(new PostgresNotificationStore(
+            new Factory(fixture.RuntimeConnection), TimeProvider.System));
+        for (var i = 0; i < 10; i++)
+            await ingestion.ExecuteAsync(fixture.TenantA, Guid.NewGuid(), Guid.NewGuid().ToString("D"),
+                new NotificationDraft("synthetic@example.com", "Publisher fixture", "Body", null,
+                    "transactional", DateTimeOffset.UtcNow.AddHours(1), null, "{}"), CancellationToken.None);
         var connectionString = Environment.GetEnvironmentVariable("AETHER_TEST_PUBLISHER")!;
         await using var source = NpgsqlDataSource.Create(connectionString);
         await using (var denied = source.CreateCommand("SELECT * FROM notifications.outbox_messages"))

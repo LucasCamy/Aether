@@ -24,4 +24,5 @@ O smoke identificou readiness no schema antigo após mover o catálogo. A rota f
 corrigida e ganhou teste de regressão.
 
 Sem envio externo, callbacks reais, HA, carga ou recuperação de produção.
-Pendências em status.md. CI será verificada após publicação.
+Pendências em status.md. A primeira CI Linux encontrou teste dependente de backlog;
+ele foi corrigido para criar seus próprios dados. A execução seguinte será verificada.
